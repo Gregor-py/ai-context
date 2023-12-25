@@ -6,14 +6,7 @@ import {useProtectedRoute} from "@/hooks/useProtectedRoute";
 
 export default function Dashboard() {
     useProtectedRoute()
-    const {user, logOut} = useAuth()
-    const handleLogOut = async () => {
-        try {
-            await logOut()
-        } catch (error) {
-            console.error(error)
-        }
-    }
+    const {user} = useAuth()
 
     if (!user) {
         return null;
@@ -21,10 +14,9 @@ export default function Dashboard() {
 
     return (
         <div>
-            <div className={'text-7xl text-violet-700'}>
+            <div className={'text-2xl text-violet-700'}>
                 Dashboard
             </div>
-            <Button onClick={handleLogOut} variant={'default'}>Log out ({user.displayName})</Button>
         </div>
     )
 }
