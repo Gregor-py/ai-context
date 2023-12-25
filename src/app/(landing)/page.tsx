@@ -1,9 +1,11 @@
 'use client'
 import {Button} from '@/components/ui/button'
 import {useAuth} from "@/hooks/useAuth";
+import {useRouter} from "next/navigation";
 
 export default function Home() {
-    const {user,logOut,googleSignIn} = useAuth()
+    const {user,googleSignIn} = useAuth()
+    const router = useRouter();
     const handleSignIn = async () => {
         try {
             await googleSignIn()
@@ -11,18 +13,16 @@ export default function Home() {
             console.error(error)
         }
     }
-    const handleLogOut = async () => {
-        try {
-            await logOut()
-        } catch (error) {
-            console.error(error)
-        }
+
+    if (user) {
+        router.push('/dashboard')
     }
 
     return (
         <div>
             <Button onClick={handleSignIn} variant={'default'}>Login</Button>
-            {user && <Button onClick={handleLogOut} variant={'default'}>Log out ({user.displayName})</Button>}
+
+            <h1 className={'text-9xl text-indigo-700'}>Landing</h1>
         </div>
     )
 }
