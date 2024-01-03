@@ -1,13 +1,15 @@
 import Link from "next/link";
 import {Montserrat} from "next/font/google";
 import {cn} from "@/lib/utils";
-import {LayoutDashboard, WholeWord, Settings} from "lucide-react";
+import {LayoutDashboard, WholeWord, Settings, ScrollText, Braces} from "lucide-react";
 
 const montserrat = Montserrat({weight: "600", subsets: ['latin']})
 
 const routes = [
     {label: "Dashboard", icon: LayoutDashboard, href: "/dashboard", color: "text-sky-500"},
-    {label: "Examples generator", icon: WholeWord, href: "/examples-generator", color: "text-green-400"},
+    {label: "Example generator", icon: WholeWord, href: "/example-generator", color: "text-green-400"},
+    {label: "My sentences", icon: ScrollText, href: "/my-sentences", color: "text-red-500"},
+    {label: "Paste json", icon: Braces, href: "/paste-json", color: "text-yellow-500"},
     {label: "Settings", icon: Settings, href: "/settings", color: "text-white"},
 ]
 

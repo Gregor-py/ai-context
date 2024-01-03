@@ -4,5 +4,5 @@ admin.initializeApp()
 const db = admin.firestore();
 
 export const createUser = functions.auth.user().onCreate((user) => {
-    db.collection("users").doc(user.uid).set(JSON.parse(JSON.stringify(user)))
+    db.collection("users").doc(user.uid).set({sentences: [], amountOfUsages: 0, ...JSON.parse(JSON.stringify(user))})
 })

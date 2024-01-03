@@ -15,7 +15,6 @@ const MobileSidebar = () => {
                 <Sidebar />
             </SheetContent>
         </Sheet>
-
     )
 }
 
